@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3b82f6" />
+    <title>Dual Language Voice Translator</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Dual Language Voice Translator</h1>
+        <p>
+          Speak in either language and get an instant translation. Provide your OpenAI API key to get started.
+        </p>
+      </header>
+
+      <section class="card">
+        <div class="field">
+          <label for="apiKey">OpenAI API Key</label>
+          <div class="api-key-input">
+            <input type="password" id="apiKey" autocomplete="off" placeholder="sk-..." />
+            <button id="toggleKey" type="button" aria-label="Toggle API key visibility">👁️</button>
+          </div>
+          <label class="remember">
+            <input type="checkbox" id="rememberKey" /> Remember key on this device
+          </label>
+        </div>
+
+        <div class="field field--inline">
+          <label for="languageA">Language A</label>
+          <select id="languageA"></select>
+        </div>
+
+        <div class="field field--inline">
+          <label for="languageB">Language B</label>
+          <select id="languageB"></select>
+        </div>
+
+        <div class="actions">
+          <button id="recordButton" type="button">Start Listening</button>
+          <button id="cancelButton" type="button" class="secondary">Cancel</button>
+        </div>
+      </section>
+
+      <section class="card output" aria-live="polite">
+        <div class="status" id="status">Ready to listen</div>
+        <div class="transcript">
+          <h2>Recognized Speech</h2>
+          <p id="recognizedText">—</p>
+        </div>
+        <div class="translation">
+          <h2>Translation</h2>
+          <p id="translatedText">—</p>
+        </div>
+      </section>
+
+      <section class="card tips">
+        <h2>How it works</h2>
+        <ul>
+          <li>Press <strong>Start Listening</strong> and begin speaking.</li>
+          <li>The app records a short clip, transcribes it using OpenAI, and translates it.</li>
+          <li>If you speak Language A, you get Language B. Speak Language B, you get Language A. Any other language is translated to Language B.</li>
+          <li>Your API key stays on your device. Use "Remember" to store it locally.</li>
+        </ul>
+      </section>
+    </main>
+
+    <template id="languageOptions">
+      <option value="English">English</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Korean">Korean</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Chinese">Chinese</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Italian">Italian</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Arabic">Arabic</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Thai">Thai</option>
+      <option value="Turkish">Turkish</option>
+      <option value="Russian">Russian</option>
+      <option value="Indonesian">Indonesian</option>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
